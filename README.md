@@ -4,8 +4,7 @@ Webcat is a tool for reading from and writing to websocket. Currently supports t
 Dependencies:
 https://github.com/gorilla/websocket
 
-Flags:
+`webcat -s ws://localhost:8888 -o http://localhost:8888`
+
 -s Specify websocket URL
 -o Specify Origin HTTP header
-
-`webcat -s ws://localhost:8888 -o http://localhost:8888`
