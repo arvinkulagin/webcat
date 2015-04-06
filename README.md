@@ -2,7 +2,7 @@
 Webcat is a tool for reading from and writing to websocket. Currently supports text messages only.
 
 Dependencies:
-https://github.com/gorilla/websocket
+github.com/gorilla/websocket
 
 `webcat -s ws://localhost:8888 -o http://localhost:8888`
 
