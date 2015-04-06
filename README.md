@@ -1,11 +1,11 @@
 # webcat
-Webcat is a networking service for reading from and writing to network connections using websocket.
-It works like netcat, but over websocket.
+Webcat is a tool for reading from and writing to websocket. Currently supports text messages only.
 
-App uses https://github.com/gorilla/websocket
+Dependencies:
+https://github.com/gorilla/websocket
 
 Flags:
 -s Specify websocket URL
--o Specify Origin HTTP handler
+-o Specify Origin HTTP header
 
-webcat -s ws://localhost:8888 -o http://localhost:8888
+`webcat -s ws://localhost:8888 -o http://localhost:8888`
