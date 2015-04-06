@@ -2,8 +2,6 @@ package main
 
 import (
 	"bufio"
-	"log"
-	"errors"
 	"fmt"
 	"os"
 	"flag"
@@ -18,7 +16,7 @@ func main() {
 	flag.Parse()
 
 	if *url == "" {
-		fmt.Println(errors.New("Error: You must Specify URL with -s"))
+		fmt.Println("Error: You must Specify URL with -s")
 		return
 	}
 
@@ -28,11 +26,12 @@ func main() {
 	dialer := websocket.Dialer{}
 	conn, _, err := dialer.Dial(*url, header)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Printf("Error: Can't connect to %s\n", *url)
+		return
 	}
 
 	go func() {
-		// Write
+		// Write loop
 		for {
 			msg, _ := bufio.NewReader(os.Stdin).ReadString('\n')
 			msg = strings.Trim(msg, "\n")
@@ -43,13 +42,13 @@ func main() {
 		}
 	}()
 
+	// Read loop
 	for {
-		// Read
 		_, msg, err := conn.ReadMessage()
 		if err != nil {
 			conn.Close()
 			return
 		}
-		println(string(msg))
+		fmt.Println(string(msg))
 	}
 }
