@@ -3,6 +3,8 @@ package main
 import (
 	"bufio"
 	"log"
+	"errors"
+	"fmt"
 	"os"
 	"flag"
 	"strings"
@@ -11,9 +13,14 @@ import (
 )
 
 func main() {
-	url := flag.String("s", "ws://localhost:8888", "URL")
+	url := flag.String("s", "", "URL")
 	origin := flag.String("o", "", "Origin")
 	flag.Parse()
+
+	if *url == "" {
+		fmt.Println(errors.New("Error: You must Specify URL with -s"))
+		return
+	}
 
 	header := http.Header{}
 	header.Add("Origin", *origin)
@@ -31,7 +38,7 @@ func main() {
 			msg = strings.Trim(msg, "\n")
 			err := conn.WriteMessage(websocket.TextMessage, []byte(msg))
 			if err != nil {
-				log.Println(err)
+				return
 			}
 		}
 	}()
