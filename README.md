@@ -7,7 +7,7 @@ Webcat is a tool for reading from and writing to websocket. Currently supports t
 
 ### Getting webcat
 ```
-go get github.com/arvinkulagin/webcat`
+go get github.com/arvinkulagin/webcat
 cd go/src/github.com/arvinkulagin/webcat
 go install
 ```
