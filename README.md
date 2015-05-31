@@ -6,8 +6,6 @@ github.com/gorilla/websocket
 github.com/arvinkulagin/cli
 
 ### Getting webcat
-`go get github.com/gorilla/websocket`
-`go get github.com/arvinkulagin/cli`
 `go get github.com/arvinkulagin/webcat`
 
 ### Websocket echo server
