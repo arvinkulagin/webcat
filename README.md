@@ -2,8 +2,8 @@
 Webcat is a tool for reading from and writing to websocket. Currently supports text messages only.
 
 ### Dependencies
-github.com/gorilla/websocket
-github.com/arvinkulagin/cli
+* github.com/gorilla/websocket
+* github.com/arvinkulagin/cli
 
 ### Getting webcat
 `go get github.com/arvinkulagin/webcat`
