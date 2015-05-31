@@ -41,6 +41,6 @@ func Server(r cli.Request) {
 		}
 	})
 
-	fmt.Printf("Listening on %s\n", addr)
+	fmt.Printf("Meke request to ws://%s%s\n", addr, path)
 	log.Fatal(http.ListenAndServe(addr, nil))
 }
